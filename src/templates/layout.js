@@ -5,6 +5,7 @@ import { Container } from "react-bootstrap"
 import styled from "styled-components"
 
 import "bootstrap/dist/css/bootstrap.min.css"
+import "../styles/global.css"
 
 import Header from "./header"
 
@@ -18,7 +19,7 @@ const Footer = styled.div`
   width: 100%;
   text-align: center;
   padding: 10px 0;
-  background: #fafafa;
+  background: ${props => props.theme.secondary};
   height: 18px;
 `
 

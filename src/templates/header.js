@@ -14,7 +14,7 @@ import {
 
 const HeaderWrapper = styled.div`
   border: none;
-  background: #21aff2;
+  background: ${props => props.theme.main};
   boxshadow: 0 1px 50px 0 rgba(0, 0, 0, 0.26);
   height: 60px;
 `
@@ -52,7 +52,7 @@ const Header = () => (
       <Container>
         <Link to="/">
           <Logo>
-            <img src="/logo.png" height={30} />
+            <img src="/logo.png" height={30} alt="Simon Rose" />
           </Logo>
         </Link>
         <Links>
@@ -62,12 +62,20 @@ const Header = () => (
             </a>
           </SocialLink>
           <SocialLink>
-            <a href="https://github.com/simonrose121" target="_blank">
+            <a
+              href="https://github.com/simonrose121"
+              target="_blank"
+              rel="noreferrer"
+            >
               <FontAwesomeIcon icon={faGithub} />
             </a>
           </SocialLink>
           <SocialLink>
-            <a href="http://uk.linkedin.com/in/simonprose/" target="_blank">
+            <a
+              href="http://uk.linkedin.com/in/simonprose/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <FontAwesomeIcon icon={faLinkedinIn} />
             </a>
           </SocialLink>
@@ -75,6 +83,7 @@ const Header = () => (
             <a
               href="https://scholar.google.com/citations?user=wMWa2TkAAAAJ&hl=en"
               target="_blank"
+              rel="noreferrer"
             >
               <FontAwesomeIcon icon={faGraduationCap} />
             </a>
@@ -83,6 +92,7 @@ const Header = () => (
             <a
               href="https://www.researchgate.net/profile/Simon_Rose2"
               target="_blank"
+              rel="noreferrer"
             >
               <FontAwesomeIcon icon={faResearchgate} />
             </a>
@@ -91,6 +101,7 @@ const Header = () => (
             <a
               href="https://www.goodreads.com/user/show/22312452-simon-rose"
               target="_blank"
+              rel="noreferrer"
             >
               <FontAwesomeIcon icon={faGoodreadsG} />
             </a>
