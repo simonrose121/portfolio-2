@@ -1,15 +1,15 @@
 import React from "react"
 import Helmet from "react-helmet"
 
-import "bootstrap/dist/css/bootstrap.min.css"
+import Layout from "../templates/layout"
 
-import { Container } from "react-bootstrap"
-
-export default function Home() {
+const Home = () => {
   return (
     <>
       <Helmet title="Home" />
-      <Container>Hello world</Container>
+      <Layout>Hello world!</Layout>
     </>
   )
 }
+
+export default Home
