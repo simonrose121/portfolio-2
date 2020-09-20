@@ -4,13 +4,7 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 import { Container } from "react-bootstrap"
 
-import { faEnvelope, faGraduationCap } from "@fortawesome/free-solid-svg-icons"
-import {
-  faGithub,
-  faLinkedinIn,
-  faResearchgate,
-  faGoodreadsG,
-} from "@fortawesome/free-brands-svg-icons"
+import socials from "../data/socials"
 
 const HeaderWrapper = styled.div`
   border: none;
@@ -37,13 +31,10 @@ const Links = styled.div`
   margin-top: 5px;
 `
 
-const SocialLink = styled.div`
+const SocialLink = styled.a`
   display: inline;
   padding-right: 20px;
-
-  a {
-    color: white;
-  }
+  color: white;
 `
 
 const Header = () => (
@@ -56,56 +47,17 @@ const Header = () => (
           </Logo>
         </Link>
         <Links>
-          <SocialLink>
-            <a href="mailto:simonrose121@gmail.com">
-              <FontAwesomeIcon icon={faEnvelope} />
-            </a>
-          </SocialLink>
-          <SocialLink>
-            <a
-              href="https://github.com/simonrose121"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FontAwesomeIcon icon={faGithub} />
-            </a>
-          </SocialLink>
-          <SocialLink>
-            <a
-              href="http://uk.linkedin.com/in/simonprose/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FontAwesomeIcon icon={faLinkedinIn} />
-            </a>
-          </SocialLink>
-          <SocialLink>
-            <a
-              href="https://scholar.google.com/citations?user=wMWa2TkAAAAJ&hl=en"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FontAwesomeIcon icon={faGraduationCap} />
-            </a>
-          </SocialLink>
-          <SocialLink>
-            <a
-              href="https://www.researchgate.net/profile/Simon_Rose2"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FontAwesomeIcon icon={faResearchgate} />
-            </a>
-          </SocialLink>
-          <SocialLink>
-            <a
-              href="https://www.goodreads.com/user/show/22312452-simon-rose"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FontAwesomeIcon icon={faGoodreadsG} />
-            </a>
-          </SocialLink>
+          {socials.map(social => {
+            return (
+              <SocialLink
+                href={social.href}
+                alt={social.name}
+                key={social.name}
+              >
+                <FontAwesomeIcon icon={social.icon} />
+              </SocialLink>
+            )
+          })}
         </Links>
       </Container>
     </HeaderWrapper>

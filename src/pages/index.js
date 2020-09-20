@@ -120,7 +120,7 @@ const Home = () => {
         </Row>
         <Projects>
           {projectRows.map((row, rowIndex) => (
-            <Row>
+            <Row key={"projectRow" + rowIndex}>
               {row.map((project, projectIndex) => {
                 return project.title ? (
                   <Col
@@ -137,7 +137,9 @@ const Home = () => {
                     ></Project>
                   </Col>
                 ) : (
-                  <Col></Col>
+                  <Col
+                    key={"project" + parseInt(rowIndex * 3 + projectIndex + 1)}
+                  ></Col>
                 )
               })}
             </Row>
@@ -146,7 +148,7 @@ const Home = () => {
         <Publications>
           {publications.map((publication, index) => {
             return (
-              <Row>
+              <Row key={"publicationRow" + index}>
                 <Col key={"publication" + index}>
                   <Publication>
                     <a href={publication.link} target="_blank" rel="noreferrer">
