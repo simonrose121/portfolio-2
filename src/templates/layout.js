@@ -21,6 +21,7 @@ const Footer = styled.footer`
   padding: 10px 0;
   background: ${props => props.theme.secondary};
   height: 18px;
+  float: left;
 `
 
 const Layout = ({ children }) => {

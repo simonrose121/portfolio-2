@@ -10,6 +10,7 @@ import { Row, Col } from "react-bootstrap"
 import Layout from "../templates/layout"
 import Project from "../templates/project"
 import projects from "../data/projects"
+import publications from "../data/publications"
 
 const Profile = styled.div`
   img {
@@ -55,6 +56,24 @@ const Projects = styled.div`
   width: 100%;
   overflow: hidden;
   text-align: center;
+`
+
+const Publications = styled.div`
+  width: 100%;
+  margin: 30px auto;
+  float: left;
+`
+
+const Publication = styled.div`
+  line-height: 20px;
+  margin: 10px auto;
+  width: 80%;
+  text-align: center;
+
+  a {
+    color: black;
+    text-decoration: none;
+  }
 `
 
 const theme = {
@@ -131,6 +150,25 @@ const Home = () => {
               </Row>
             ))}
           </Projects>
+          <Publications>
+            {publications.map(publication => {
+              return (
+                <Row>
+                  <Col>
+                    <Publication>
+                      <a
+                        href={publication.link}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {publication.citation}
+                      </a>
+                    </Publication>
+                  </Col>
+                </Row>
+              )
+            })}
+          </Publications>
         </Layout>
       </ThemeProvider>
     </>
