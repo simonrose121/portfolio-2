@@ -3,8 +3,6 @@ import Helmet from "react-helmet"
 import styled from "styled-components"
 import lodash from "lodash"
 
-import { ThemeProvider } from "styled-components"
-
 import { Row, Col } from "react-bootstrap"
 
 import Layout from "../templates/layout"
@@ -76,11 +74,6 @@ const Publication = styled.div`
   }
 `
 
-const theme = {
-  main: "#21aff2",
-  secondary: "#fafafa",
-}
-
 const Home = () => {
   const projectRows = lodash.chunk(projects, 3)
 
@@ -94,83 +87,78 @@ const Home = () => {
   return (
     <>
       <Helmet title="Home" />
-      <ThemeProvider theme={theme}>
-        <Layout>
-          <Profile>
-            <img
-              src={
-                "https://s.gravatar.com/avatar/5a0fd43b00b619257adf46ee7626f254?s=300"
-              }
-              alt="Simon Rose Profile"
-            />
-          </Profile>
-          <Row>
-            <Col>
-              <Info>
-                <br />
-                PhD in Computer Science
-                <br />
-                MComp in Software Engineering
-                <br />
-                Associate Lecturer at Sheffield Hallam University and freelance
-                Software Engineer
-                <br />
-                Thank you for visiting.
-                <br />
-                <CVButton>
-                  <a href="data/SimonRoseCV.pdf" target="_blank">
-                    CV
-                  </a>
-                </CVButton>
-              </Info>
-            </Col>
-          </Row>
-          <Projects>
-            {projectRows.map((row, rowIndex) => (
-              <Row>
-                {row.map((project, projectIndex) => {
-                  return project.title ? (
-                    <Col
-                      key={parseInt(rowIndex * 3) + parseInt(projectIndex + 1)}
-                    >
-                      <Project
-                        key={project.title}
-                        link={project.link}
-                        image={project.image}
-                        title={project.title}
-                        desc={project.desc}
-                        lang={project.lang}
-                        year={project.year}
-                      ></Project>
-                    </Col>
-                  ) : (
-                    <Col></Col>
-                  )
-                })}
-              </Row>
-            ))}
-          </Projects>
-          <Publications>
-            {publications.map(publication => {
-              return (
-                <Row>
-                  <Col>
-                    <Publication>
-                      <a
-                        href={publication.link}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        {publication.citation}
-                      </a>
-                    </Publication>
+
+      <Layout>
+        <Profile>
+          <img
+            src={
+              "https://s.gravatar.com/avatar/5a0fd43b00b619257adf46ee7626f254?s=300"
+            }
+            alt="Simon Rose Profile"
+          />
+        </Profile>
+        <Row>
+          <Col>
+            <Info>
+              <br />
+              PhD in Computer Science
+              <br />
+              MComp in Software Engineering
+              <br />
+              Associate Lecturer at Sheffield Hallam University and freelance
+              Software Engineer
+              <br />
+              Thank you for visiting.
+              <br />
+              <CVButton>
+                <a href="data/SimonRoseCV.pdf" target="_blank">
+                  CV
+                </a>
+              </CVButton>
+            </Info>
+          </Col>
+        </Row>
+        <Projects>
+          {projectRows.map((row, rowIndex) => (
+            <Row>
+              {row.map((project, projectIndex) => {
+                return project.title ? (
+                  <Col
+                    key={"project" + parseInt(rowIndex * 3 + projectIndex + 1)}
+                  >
+                    <Project
+                      key={project.title}
+                      link={project.link}
+                      image={project.image}
+                      title={project.title}
+                      desc={project.desc}
+                      lang={project.lang}
+                      year={project.year}
+                    ></Project>
                   </Col>
-                </Row>
-              )
-            })}
-          </Publications>
-        </Layout>
-      </ThemeProvider>
+                ) : (
+                  <Col></Col>
+                )
+              })}
+            </Row>
+          ))}
+        </Projects>
+        <Publications>
+          {publications.map((publication, index) => {
+            return (
+              <Row>
+                <Col key={"publication" + index}>
+                  <Publication>
+                    <a href={publication.link} target="_blank" rel="noreferrer">
+                      {publication.citation}
+                    </a>
+                  </Publication>
+                </Col>
+              </Row>
+            )
+          })}
+        </Publications>
+      </Layout>
     </>
   )
 }

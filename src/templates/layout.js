@@ -4,6 +4,8 @@ import Helmet from "react-helmet"
 import { Container } from "react-bootstrap"
 import styled from "styled-components"
 
+import { ThemeProvider } from "styled-components"
+
 import "bootstrap/dist/css/bootstrap.min.css"
 import "../styles/global.css"
 
@@ -24,18 +26,24 @@ const Footer = styled.footer`
   float: left;
 `
 
+const theme = {
+  main: "#21aff2",
+  secondary: "#fafafa",
+}
+
 const Layout = ({ children }) => {
   return (
     <>
       <Helmet titleTemplate="%s - Simon Rose" />
-
-      <Wrapper>
-        <Header />
-        <Container>{children}</Container>
-      </Wrapper>
-      <Footer>
-        <Container>Simon Rose {currentYear} &copy;</Container>
-      </Footer>
+      <ThemeProvider theme={theme}>
+        <Wrapper>
+          <Header />
+          <Container>{children}</Container>
+        </Wrapper>
+        <Footer>
+          <Container>Simon Rose {currentYear} &copy;</Container>
+        </Footer>
+      </ThemeProvider>
     </>
   )
 }

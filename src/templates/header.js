@@ -15,7 +15,7 @@ import {
 const HeaderWrapper = styled.div`
   border: none;
   background: ${props => props.theme.main};
-  boxshadow: 0 1px 50px 0 rgba(0, 0, 0, 0.26);
+  box-shadow: 0 1px 50px 0 rgba(0, 0, 0, 0.26);
   height: 60px;
 `
 
@@ -52,7 +52,7 @@ const Header = () => (
       <Container>
         <Link to="/">
           <Logo>
-            <img src="logo.png" height={30} alt="Simon Rose" />
+            <img src="/logo.png" height={30} alt="Simon Rose" />
           </Logo>
         </Link>
         <Links>
