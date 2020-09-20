@@ -25,7 +25,7 @@ const ProjectWrapper = styled.div`
     .year {
       text-align: left;
       position: absolute;
-      bottom: 20px;
+      bottom: 15px;
       right: 5px;
     }
   }

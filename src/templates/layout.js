@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   min-height: calc(100vh - 36px);
 `
 
-const Footer = styled.div`
+const Footer = styled.footer`
   width: 100%;
   text-align: center;
   padding: 10px 0;
@@ -32,7 +32,9 @@ const Layout = ({ children }) => {
         <Header />
         <Container>{children}</Container>
       </Wrapper>
-      <Footer>Simon Rose {currentYear} &copy;</Footer>
+      <Footer>
+        <Container>Simon Rose {currentYear} &copy;</Container>
+      </Footer>
     </>
   )
 }
