@@ -52,7 +52,7 @@ const Header = () => (
       <Container>
         <Link to="/">
           <Logo>
-            <img src="/logo.png" height={30} alt="Simon Rose" />
+            <img src="logo.png" height={30} alt="Simon Rose" />
           </Logo>
         </Link>
         <Links>

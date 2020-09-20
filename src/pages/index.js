@@ -1,12 +1,15 @@
 import React from "react"
 import Helmet from "react-helmet"
 import styled from "styled-components"
+import lodash from "lodash"
 
 import { ThemeProvider } from "styled-components"
 
 import { Row, Col } from "react-bootstrap"
 
 import Layout from "../templates/layout"
+import Project from "../templates/project"
+import projects from "../data/projects"
 
 const Profile = styled.div`
   img {
@@ -22,21 +25,36 @@ const Profile = styled.div`
 `
 
 const Info = styled.div`
-  padding-top: 97px;
+  padding-top: 77px;
   text-align: center;
+  line-height: 35px;
 `
 
 const CVButton = styled.button`
   border-radius: 6px;
   background: ${props => props.theme.main};
   padding: 2px 20px 0px 20px;
+  margin-top: 20px;
   border: solid 2px;
   border-color: ${props => props.theme.main};
   text-decoration: none;
+  line-height: 20px;
 
   a {
     color: white;
   }
+`
+
+const Projects = styled.div`
+  padding: 0px;
+  margin-top: 25px;
+  padding-top: 25px;
+  background: ${props => props.theme.secondary};
+  color: black;
+  float: left;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
 `
 
 const theme = {
@@ -45,6 +63,15 @@ const theme = {
 }
 
 const Home = () => {
+  const projectRows = lodash.chunk(projects, 3)
+
+  projectRows.forEach(row => {
+    if (row.length === 1) {
+      row.push({})
+      row.unshift({})
+    }
+  })
+
   return (
     <>
       <Helmet title="Home" />
@@ -64,16 +91,12 @@ const Home = () => {
                 <br />
                 PhD in Computer Science
                 <br />
-                <br />
                 MComp in Software Engineering
-                <br />
                 <br />
                 Associate Lecturer at Sheffield Hallam University and freelance
                 Software Engineer
                 <br />
-                <br />
                 Thank you for visiting.
-                <br />
                 <br />
                 <CVButton>
                   <a href="data/SimonRoseCV.pdf" target="_blank">
@@ -83,6 +106,31 @@ const Home = () => {
               </Info>
             </Col>
           </Row>
+          <Projects>
+            {projectRows.map((row, rowIndex) => (
+              <Row>
+                {row.map((project, projectIndex) => {
+                  return project.title ? (
+                    <Col
+                      key={parseInt(rowIndex * 3) + parseInt(projectIndex + 1)}
+                    >
+                      <Project
+                        key={project.title}
+                        link={project.link}
+                        image={project.image}
+                        title={project.title}
+                        desc={project.desc}
+                        lang={project.lang}
+                        year={project.year}
+                      ></Project>
+                    </Col>
+                  ) : (
+                    <Col></Col>
+                  )
+                })}
+              </Row>
+            ))}
+          </Projects>
         </Layout>
       </ThemeProvider>
     </>
