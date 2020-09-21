@@ -112,7 +112,6 @@ const ProjectsLayout = props => {
                 height={props.pageContext.frontmatter.media.height}
                 frameBorder="0"
                 scrolling="no"
-                style={{ margin: "auto" }}
               ></iframe>
             </Col>
           </Row>
