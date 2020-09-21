@@ -21,6 +21,11 @@ const Logo = styled.img`
   padding: 20px 0;
 `
 
+const Title = styled.h2`
+  font-weight: bold;
+  padding: 20px 0 10px;
+`
+
 const Image = styled.img`
   width: 100%;
   margin-bottom: 10px;
@@ -36,11 +41,15 @@ const ProjectsLayout = props => {
       <Layout>
         <Row>
           <Col>
-            <Logo
-              src={`/${props.pageContext.frontmatter.logo}`}
-              alt={props.pageContext.frontmatter.title}
-              width={props.pageContext.frontmatter.logoWidth}
-            />
+            {props.pageContext.frontmatter.logo ? (
+              <Logo
+                src={`/${props.pageContext.frontmatter.logo}`}
+                alt={props.pageContext.frontmatter.title}
+                width={props.pageContext.frontmatter.logoWidth}
+              />
+            ) : (
+              <Title>{props.pageContext.frontmatter.title}</Title>
+            )}
           </Col>
         </Row>
         <Row>

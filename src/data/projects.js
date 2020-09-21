@@ -13,7 +13,7 @@ const projects = [
     image: "pirateplunder.jpg",
     title: "Pirate Plunder",
     desc: "Programming game to teach abstraction skills using Scratch blocks.",
-    lang: "Angular 5, TypeScript, Node.js, MongoDB",
+    lang: "AngularJS, TypeScript, Node.js, MongoDB",
     year: "2019",
   },
   {
@@ -30,7 +30,7 @@ const projects = [
     title: "Sequencer",
     desc:
       "Quiz application to measure the sequencing ability of young children.",
-    lang: "Angular 2, TypeScript, Node.js, MongoDB",
+    lang: "AngularJS, TypeScript, Node.js, MongoDB",
     year: "2017",
   },
   {
