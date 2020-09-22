@@ -34,6 +34,10 @@ const ProjectWrapper = styled.div`
     .desc {
       visibility: visible;
       opacity: 1;
+
+      @media only screen and (max-width: 620px) {
+        visibility: hidden;
+      }
     }
 
     img {
