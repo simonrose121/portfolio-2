@@ -45,10 +45,7 @@ const CVButton = styled.button`
   border-color: ${props => props.theme.main};
   text-decoration: none;
   line-height: 20px;
-
-  a {
-    color: white;
-  }
+  color: white;
 `
 
 const Projects = styled.div`
@@ -119,11 +116,9 @@ const Home = () => {
               <br />
               Thank you for visiting.
               <br />
-              <CVButton>
-                <a href="/data/SimonRoseCV.pdf" target="_blank">
-                  CV
-                </a>
-              </CVButton>
+              <a href="/data/SimonRoseCV.pdf" target="_blank">
+                <CVButton>CV</CVButton>
+              </a>
             </Info>
           </Col>
         </Row>
