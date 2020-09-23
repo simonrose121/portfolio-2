@@ -85,6 +85,8 @@ const Header = () => (
                     href={social.href}
                     alt={social.name}
                     key={social.name}
+                    target="_blank"
+                    rel="noreferrer"
                   >
                     <FontAwesomeIcon icon={social.icon} />
                   </SocialLink>
