@@ -1,5 +1,13 @@
 const projects = [
   {
+    link: "/projects/simonrosesoftware",
+    image: "simonrosesoftware.jpg",
+    title: "Simon Rose Software",
+    desc: "Static Nuxt.js website to advertise my freelance software business.",
+    lang: "Nuxt.js, JavaScript, Firebase",
+    year: "2021",
+  },
+  {
     link: "/projects/cognitivefunctiontask/",
     image: "cft.jpg",
     title: "CFT",
@@ -88,14 +96,6 @@ const projects = [
     title: "Mincemeat",
     desc: "Lemmings-based game developed in GameMaker.",
     lang: "GML",
-    year: "2013",
-  },
-  {
-    link: "/projects/warp/",
-    image: "warp.jpg",
-    title: "Warp",
-    desc: "Venture through the realms of space.",
-    lang: "C++, DirectX",
     year: "2013",
   },
 ]
