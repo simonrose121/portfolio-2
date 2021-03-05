@@ -33,7 +33,7 @@ const ProjectWrapper = styled.div`
   &:hover {
     .desc {
       visibility: visible;
-      opacity: 1;
+      animation: clear 0.5s forwards;
 
       @media only screen and (max-width: 620px) {
         visibility: hidden;
